@@ -30,7 +30,7 @@ const Contact = mongoose.model("Contact", contactSchema);
 
 // Routes
 
-// 1. Create a new contact
+// Create a new contact
 app.post("/contacts", async (req, res) => {
   try {
     const contact = new Contact(req.body);
@@ -41,7 +41,7 @@ app.post("/contacts", async (req, res) => {
   }
 });
 
-// 2. Get all contacts
+// Get all contacts
 app.get("/contacts", async (req, res) => {
   try {
     const contacts = await Contact.find();
@@ -51,7 +51,7 @@ app.get("/contacts", async (req, res) => {
   }
 });
 
-// 3. Update a contact
+// Update a contact
 app.put("/contacts/:id", async (req, res) => {
   try {
     const updatedContact = await Contact.findByIdAndUpdate(req.params.id, req.body, {
@@ -64,7 +64,7 @@ app.put("/contacts/:id", async (req, res) => {
   }
 });
 
-// 4. Delete a contact
+// Delete a contact
 app.delete("/contacts/:id", async (req, res) => {
   try {
     const deletedContact = await Contact.findByIdAndDelete(req.params.id);
